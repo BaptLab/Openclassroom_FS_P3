@@ -1,0 +1,44 @@
+<div class="me">
+  <mat-card class="">
+    <mat-card-title>
+      <div
+        fxLayout="row"
+        fxLayoutAlign="start center"
+      >
+        <button
+          mat-icon-button
+          (click)="back()"
+        >
+          <mat-icon
+            >arrow_back</mat-icon
+          >
+        </button>
+        <h1>User information</h1>
+      </div>
+    </mat-card-title>
+    <mat-card-content>
+      <div
+        *ngIf="user"
+        fxLayout="column"
+        fxLayoutAlign="start center"
+      >
+        <p>Name: {{ user.name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>
+          <i>Create at: </i>
+          {{
+            user.creationDate
+              | date : "longDate"
+          }}
+        </p>
+        <p>
+          <i>Last update: </i>
+          {{
+            user.updateDate
+              | date : "longDate"
+          }}
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
