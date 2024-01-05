@@ -80,6 +80,17 @@ Ce projet a été développé en utilisant Java, Spring et MySQL. Assurez-vous d
 
 - [Java Development Kit (JDK)](https://www.oracle.com/fr/java/technologies/downloads/) version 8 ou supérieure.
 - [MySQL ou MySQL Workbench](https://www.mysql.com/fr/downloads/) installé sur votre machine.
+- [Maven](https://maven.apache.org/) installé sur votre machine.
+
+### Installation des dépendances
+
+Avant de lancer l'application, assurez-vous d'installer les dépendances en utilisant Maven. Exécutez la commande suivante dans le répertoire du projet :
+
+```bash
+mvn install
+```
+
+Cette commande téléchargera et installera toutes les dépendances nécessaires au projet.
 
 ### Configuration de la base de données
 
@@ -87,16 +98,17 @@ Configurez la base de données MySQL en utilisant le fichier sql script.sql pré
 
 Assurez-vous que le fichier application.properties dans le projet Spring contient les informations correctes pour la base de données.
 
-### Configuration de l'IDE
-
-Ouvrez votre IDE (par exemple, Eclipse, IntelliJ) et importez le projet en tant que projet Maven.
-
-Dans Eclipse : File > Import > Existing Maven Projects.
-Dans IntelliJ : File > Open > Sélectionnez le fichier pom.xml.
-
 ### Lancement de l'application
 
-Lancez l'application Spring Boot depuis votre IDE.
+Lancez l'application Spring Boot en utilisant la commande Maven suivante dans le terminal :
+
+```bash
+mvn spring-boot:run
+```
+
+Ou
+
+Lancez l'application Spring Boot depuis votre IDE :
 
 Dans Eclipse : Cliquez avec le bouton droit sur le projet > Run As > Spring Boot App.
 Dans IntelliJ : Cliquez sur le bouton Run à côté de la classe principale.
