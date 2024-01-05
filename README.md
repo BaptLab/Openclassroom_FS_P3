@@ -94,9 +94,16 @@ Cette commande téléchargera et installera toutes les dépendances nécessaires
 
 ### Configuration de la base de données
 
-Configurez la base de données MySQL en utilisant le fichier sql script.sql présent dans le dossier front-end/ressources/sql.
+Créez une base de données MySQL avec le nom de votre choix (nom_de_votre_base_de_données).
 
-Assurez-vous que le fichier application.properties dans le projet Spring contient les informations correctes pour la base de données.
+Assurez-vous que le fichier application.properties dans le projet Spring contient les informations correctes pour la base de données. Modifiez les paramètres suivants en fonction de votre configuration :
+
+`spring.datasource.url=jdbc:mysql://localhost:3306/nom_de_votre_base_de_données?useSSL=false&serverTimezone=UTC
+spring.datasource.username=votre_utilisateur
+spring.datasource.password=votre_mot_de_passe`
+
+Configurez la base de données MySQL en utilisant le fichier sql script.sql présent dans le dossier front-end/ressources/sql.
+Vous pouvez utiliser un outil tel que MySQL Workbench pour exécuter ce script.
 
 ### Lancement de l'application
 
