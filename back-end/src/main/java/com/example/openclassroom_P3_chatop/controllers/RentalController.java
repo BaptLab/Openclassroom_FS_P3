@@ -22,6 +22,7 @@ import com.example.openclassroom_P3_chatop.dto.RentalsResponseDTO;
 import com.example.openclassroom_P3_chatop.model.Rental;
 import com.example.openclassroom_P3_chatop.services.RentalService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
@@ -31,6 +32,7 @@ public class RentalController {
 	@Autowired
 	private RentalService rentalService;
 
+	@SecurityRequirement(name = "Bearer Authentication")
 	@GetMapping("/rentals")
 	public ResponseEntity<RentalsResponseDTO> getAllRentals(HttpServletRequest request) {
 		List<Rental> rentals = rentalService.getAllRentals();
@@ -38,12 +40,14 @@ public class RentalController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
+	@SecurityRequirement(name = "Bearer Authentication")
 	@GetMapping("/rentals/{id}")
 	public ResponseEntity<Optional<Rental>> getRental(@PathVariable Long id, HttpServletRequest request) {
 		Optional<Rental> rental = rentalService.getRentalById(id);
 		return new ResponseEntity<>(rental, HttpStatus.OK);
 	}
 
+	@SecurityRequirement(name = "Bearer Authentication")
 	@PutMapping("/rentals/{id}")
 	public ResponseEntity<MessageResponseDTO> updateRental(@RequestParam("picture") MultipartFile picture,
 			@ModelAttribute RentalDTO rentalDTO, @PathVariable Long id) {
@@ -51,6 +55,7 @@ public class RentalController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
+	@SecurityRequirement(name = "Bearer Authentication")
 	@PostMapping("/rentals")
 	public ResponseEntity<MessageResponseDTO> createRental(@RequestParam("picture") MultipartFile picture,
 			@ModelAttribute RentalDTO rentalDTO) {

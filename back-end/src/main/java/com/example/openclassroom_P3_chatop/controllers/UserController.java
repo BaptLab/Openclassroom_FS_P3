@@ -21,13 +21,16 @@ import com.example.openclassroom_P3_chatop.dto.TokenResponseDTO;
 import com.example.openclassroom_P3_chatop.dto.UserDTO;
 import com.example.openclassroom_P3_chatop.services.UserService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 @RestController
 @RequestMapping("/api/auth")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
-
+	
+	@SecurityRequirement(name = "Bearer Authentication")
 	@GetMapping("/me")
 	public ResponseEntity<Optional<User>> getCurrentUser() throws Exception {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

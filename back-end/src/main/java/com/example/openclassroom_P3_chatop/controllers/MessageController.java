@@ -14,6 +14,7 @@ import com.example.openclassroom_P3_chatop.dto.MessageResponseDTO;
 import com.example.openclassroom_P3_chatop.model.Message;
 import com.example.openclassroom_P3_chatop.services.MessageService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
@@ -22,7 +23,8 @@ public class MessageController {
 
 	@Autowired
 	private MessageService messageService;
-
+	
+	@SecurityRequirement(name = "Bearer Authentication")
 	@PostMapping("/messages")
 	public ResponseEntity<MessageResponseDTO> saveMessage(@RequestBody MessageDTO messageDTO,
 			HttpServletRequest request) throws Exception {
